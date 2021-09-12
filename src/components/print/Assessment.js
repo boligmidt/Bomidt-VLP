@@ -35,12 +35,12 @@ export default function PrintAssessment({
 			image => image.fileType && image.fileType.includes('image')
 		);
 		let timestamp = new Date().getTime();
-		imageSrc = files[0].fileUrl + '?t=' + timestamp;
+		imageSrc = files[0].fileUrl
 
 		if (primaryImageId) {
 			files.forEach(image => {
 				if (image._id === primaryImageId) {
-					imageSrc = image.fileUrl + '?t=' + timestamp;
+					imageSrc = image.fileUrl
 				}
 			});
 		}
