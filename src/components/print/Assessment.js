@@ -35,18 +35,17 @@ export default function PrintAssessment({
 			image => image.fileType && image.fileType.includes('image')
 		);
 		let timestamp = new Date().getTime();
-		imageSrc = files[0].fileUrl
+		imageSrc = files[0].fileUrl + '?t=' + timestamp;
 
 		if (primaryImageId) {
 			files.forEach(image => {
 				if (image._id === primaryImageId) {
-					imageSrc = image.fileUrl
+					imageSrc = image.fileUrl + '?t=' + timestamp;
 				}
 			});
 		}
 		var img = new Image();
 		img.src = imageSrc;
-		console.log(img);
 	}
 	return (
 		<div className="fullheight">

@@ -350,6 +350,7 @@ export default function OpenAssessment({
 							onClick={e => {
 								e.preventDefault();
 								e.stopPropagation();
+								console.log(props);
 								printAssessment(props);
 							}}
 							type="button"

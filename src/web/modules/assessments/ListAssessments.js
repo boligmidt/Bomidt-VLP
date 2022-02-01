@@ -58,23 +58,14 @@ export default function ListAssessments({ history }) {
 	);
 
 	async function handleActivateAssessment(item) {
-		if (!item.isActive) {
-			await updateOneAssessment({
-				variables: {
-					_id: item._id,
-					isActive: !item.isActive,
-					dueDate: item.dueDate,
-				},
-			});
-		} else {
-			await updateOneAssessment({
-				variables: {
-					_id: item._id,
-					isActive: !item.isActive,
-					dueDate: null,
-				},
-			});
-		}
+		await updateOneAssessment({
+			variables: {
+				_id: item._id,
+				isActive: !item.isActive,
+				dueDate: item.dueDate,
+			},
+		});
+
 		await refetchAssessments();
 	}
 

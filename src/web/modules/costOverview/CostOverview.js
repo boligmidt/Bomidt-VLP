@@ -74,9 +74,7 @@ export default function CostOverview({ history, ...props }) {
 		if (isNaN(cost)) {
 			cost = 0;
 		}
-		if (a.addressName == 'Adresse mangler') {
-			cost = 0;
-		}
+
 		addressMap[a.addressName] += cost;
 		yearMap[year] += cost;
 		totalCost += cost;

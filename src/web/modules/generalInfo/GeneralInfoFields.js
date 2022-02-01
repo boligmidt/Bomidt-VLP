@@ -79,11 +79,11 @@ export default function GeneralInfoFields(isAdmin) {
 
 			<InputField
 				name="conclusionContent"
-				label="Hovedkonklusjon (makslengde 600 tegn):"
+				label="Hovedkonklusjon (makslengde 1000 tegn):"
 				type="textarea"
-				inputProps={{ maxLength: 600 }}
+				inputProps={{ maxLength: 1000 }}
 				disabled={!isAdmin}
-				rows="6"
+				rows="10"
 			/>
 
 			<SubmitButton>Lagre</SubmitButton>

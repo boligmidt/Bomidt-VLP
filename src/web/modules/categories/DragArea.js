@@ -98,6 +98,7 @@ const DragArea = ({ items = [], type, categoryId, typeName }) => {
 	}
 
 	async function onDeleteClick(itemIndex) {
+		if (!confirm('Er du sikker?')) return;
 		let updatedData = {
 			_id: categoryId,
 			[type]: [],

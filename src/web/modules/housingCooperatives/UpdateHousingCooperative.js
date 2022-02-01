@@ -21,7 +21,6 @@ import PageHeader from 'components/general/PageHeader';
 import HousingCooperativeFields from './HousingCooperativeFields';
 import Loading from 'components/general/Loading';
 import EditableInput from 'components/general/EditableInput';
-import { DELETE_ASSESSMENT } from 'api/Assessments';
 
 const Divider = styled.div`
 	padding-bottom: 60px;
@@ -59,7 +58,7 @@ export default function UpdateHousingCooperative({
 	const [updateAddress] = useMutation(UPDATE_ADDRESS);
 	const [createAddress] = useMutation(CREATE_ADDRESS);
 	const [deleteAddress] = useMutation(DELETE_ADDRESS);
-	const [deleteAssessment] = useMutation(DELETE_ASSESSMENT);
+
 	async function onDeleteHousingCooperative() {
 		if (!confirm('Er du sikker?')) return;
 
@@ -105,7 +104,7 @@ export default function UpdateHousingCooperative({
 		await deleteAddress({
 			variables: { _id },
 		});
-		let assessments = await Assessments.find(query)
+
 		await refetchAddresses();
 	}
 

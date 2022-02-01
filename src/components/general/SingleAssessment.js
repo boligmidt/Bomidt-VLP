@@ -92,7 +92,7 @@ const ImagesCounter = styled.div`
 `;
 function ImagesCircle({ images = [], primaryImageId }) {
 	let imageSrc = '';
-	var timestamp = new Date().getTime();
+	var timestamp = 0;
 
 	if (images && images.length) {
 		images.filter(image =>
@@ -179,6 +179,7 @@ export default function SingleAssessment({
 									if (!props.isActive) {
 										setShowConfirm(true);
 									} else {
+										props.dueDate = null;
 										props.handleActivateAssessment(props);
 									}
 								}}

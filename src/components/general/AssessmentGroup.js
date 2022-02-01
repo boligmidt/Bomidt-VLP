@@ -87,6 +87,7 @@ export default function AssessmentGroup({
 			</AssessmentListHeader>
 
 			{group.subGroups &&
+				
 				group.subGroups.map((subGroup, s) => {
 					if (subGroup && subGroup.items) {
 						subGroup.items.sort((a, b) => a.index - b.index);

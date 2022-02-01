@@ -235,7 +235,6 @@ const AssessmentModule = {
 				separatedCategories.forEach(item =>
 					separatedCategoriesArray.push(item.name)
 				);
-
 				if (!query.isCompleted) {
 					query.isCompleted = {
 						$ne: true,
@@ -344,8 +343,6 @@ const AssessmentModule = {
 						let index =
 							assessment.category || assessment.objectType;
 						let groupIndex = assessment.addressName;
-						
-
 						if (!groups.hasOwnProperty(groupIndex)) {
 							groups[groupIndex] = {
 								subGroups: {
@@ -359,7 +356,6 @@ const AssessmentModule = {
 								},
 							};
 						}
-
 						if (
 							!groups[groupIndex].subGroups.hasOwnProperty(index)
 						) {
@@ -390,11 +386,11 @@ const AssessmentModule = {
 				Object.keys(groups)
 					.sort()
 					.forEach(function (key) {
+						
 						orderedGroups[key] = groups[key];
+
 					});
-
 				groups = orderedGroups;
-
 				let assessmentGroups = [];
 				Object.keys(groups).forEach(groupKey => {
 					let group = groups[groupKey];
@@ -403,15 +399,17 @@ const AssessmentModule = {
 						subGroups: [],
 					};
 
-					Object.keys(group.subGroups).forEach(subKey => {
-						let subGroup = group.subGroups[subKey];
-						subGroup.title = subKey;
-						newGroup.subGroups.push(subGroup);
+					separatedCategoriesArray.forEach(subKey => {
+						if (group.subGroups[subKey]) {
+							let subGroup = group.subGroups[subKey];
+							subGroup.title = subKey;
+							newGroup.subGroups.push(subGroup);
+						}
+
 					});
 
 					assessmentGroups.push(newGroup);
 				});
-
 				return assessmentGroups;
 			},
 		},
